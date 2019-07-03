@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 
-const busketRouter = require('./routes/awsBusket');
+const bucketRouter = require('./routes/awsBucket');
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static('public'));
 
-app.use('/busketList', busketRouter);
+app.use('/aws', bucketRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
