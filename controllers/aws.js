@@ -17,9 +17,7 @@ exports.uploadFile = (path) => {
       const params = {
         Bucket: process.env.AWS_BUCKET,
         Key: 'test.txt',
-        Body: file,
-        ContentType: 'text/txt',
-        ACL: 'public-read',
+        Body: JSON.stringify(file, null, 2),
       };
       return s3.upload(params, (error, data) => {
         if (error) {
